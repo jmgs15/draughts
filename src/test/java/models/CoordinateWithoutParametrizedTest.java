@@ -8,7 +8,7 @@ import usantatecla.draughts.models.Direction;
 
 import java.util.List;
 
-public class CoordinateTest {
+public class CoordinateWithoutParametrizedTest {
     private Coordinate coordinate;
     private Coordinate onNEDiagonalCoordinate;
     private final int row = 4;

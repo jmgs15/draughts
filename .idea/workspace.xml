@@ -23,18 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="299e18d1-8f8f-49c5-a53c-484fd9ba6561" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/draughts.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/models/CoordinateTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usantatecla/draughts/models/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usantatecla/draughts/models/Coordinate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usantatecla/draughts/models/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usantatecla/draughts/models/Direction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/models/CoordinateParametrizedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit3 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -88,7 +78,7 @@
       <recent name="junit.framework.TestCase" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CoordinateTest">
+  <component name="RunManager" selected="JUnit.CoordinateParametrizedTest.testGetDirection">
     <configuration name="Damas" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="usantatecla.draughts.Draughts" />
       <module name="draughts" />
@@ -97,7 +87,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CoordinateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CoordinateParametrizedTest.testGetDirection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="draughts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateParametrizedTest" />
+      <option name="METHOD_NAME" value="testGetDirection" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoordinateParametrizedTest.testGetInstance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="draughts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateParametrizedTest" />
+      <option name="METHOD_NAME" value="testGetInstance" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoordinateWithoutParametrizedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="draughts" />
       <extension name="coverage">
         <pattern>
@@ -106,13 +128,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateWithoutParametrizedTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CoordinateTest.getBetweenCoordinates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CoordinateWithoutParametrizedTest.getBetweenCoordinates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="draughts" />
       <extension name="coverage">
         <pattern>
@@ -121,14 +143,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateWithoutParametrizedTest" />
       <option name="METHOD_NAME" value="getBetweenCoordinates" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CoordinateTest.getBetweenDiagonalCoordinates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CoordinateWithoutParametrizedTest.getBetweenDiagonalCoordinatesIsNotOnDiagonal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="draughts" />
       <extension name="coverage">
         <pattern>
@@ -137,40 +159,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
-      <option name="METHOD_NAME" value="getBetweenDiagonalCoordinates" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CoordinateTest.getBetweenDiagonalCoordinatesIsNotOnDiagonal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="draughts" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateWithoutParametrizedTest" />
       <option name="METHOD_NAME" value="getBetweenDiagonalCoordinatesIsNotOnDiagonal" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CoordinateTest.testGetDiagonalDistance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="draughts" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
-      <option name="METHOD_NAME" value="testGetDiagonalDistance" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,19 +168,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Damas" />
-      <item itemvalue="JUnit.CoordinateTest" />
-      <item itemvalue="JUnit.CoordinateTest.getBetweenCoordinates" />
-      <item itemvalue="JUnit.CoordinateTest.getBetweenDiagonalCoordinates" />
-      <item itemvalue="JUnit.CoordinateTest.getBetweenDiagonalCoordinatesIsNotOnDiagonal" />
-      <item itemvalue="JUnit.CoordinateTest.testGetDiagonalDistance" />
+      <item itemvalue="JUnit.CoordinateParametrizedTest.testGetInstance" />
+      <item itemvalue="JUnit.CoordinateParametrizedTest.testGetDirection" />
+      <item itemvalue="JUnit.CoordinateWithoutParametrizedTest" />
+      <item itemvalue="JUnit.CoordinateWithoutParametrizedTest.getBetweenCoordinates" />
+      <item itemvalue="JUnit.CoordinateWithoutParametrizedTest.getBetweenDiagonalCoordinatesIsNotOnDiagonal" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CoordinateTest" />
-        <item itemvalue="JUnit.CoordinateTest.getBetweenCoordinates" />
-        <item itemvalue="JUnit.CoordinateTest.getBetweenDiagonalCoordinatesIsNotOnDiagonal" />
-        <item itemvalue="JUnit.CoordinateTest.testGetDiagonalDistance" />
-        <item itemvalue="JUnit.CoordinateTest.getBetweenDiagonalCoordinates" />
+        <item itemvalue="JUnit.CoordinateParametrizedTest.testGetDirection" />
+        <item itemvalue="JUnit.CoordinateParametrizedTest.testGetInstance" />
+        <item itemvalue="JUnit.CoordinateWithoutParametrizedTest" />
+        <item itemvalue="JUnit.CoordinateWithoutParametrizedTest.getBetweenCoordinates" />
+        <item itemvalue="JUnit.CoordinateWithoutParametrizedTest.getBetweenDiagonalCoordinatesIsNotOnDiagonal" />
       </list>
     </recent_temporary>
   </component>
@@ -203,7 +193,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604740983380</updated>
       <workItem from="1604740984720" duration="713000" />
-      <workItem from="1604743448622" duration="8484000" />
+      <workItem from="1604743448622" duration="11430000" />
     </task>
     <servers />
   </component>
@@ -238,38 +228,38 @@
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
     <state x="724" y="-657" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753286488" />
-    <state width="1878" height="148" key="GridCell.Tab.0.bottom" timestamp="1604753592002">
+    <state width="1878" height="262" key="GridCell.Tab.0.bottom" timestamp="1604756640462">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1878" height="148" key="GridCell.Tab.0.bottom/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753592002" />
-    <state width="1878" height="148" key="GridCell.Tab.0.center" timestamp="1604753591999">
+    <state width="1878" height="262" key="GridCell.Tab.0.bottom/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604756640462" />
+    <state width="1878" height="262" key="GridCell.Tab.0.center" timestamp="1604756640461">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1878" height="148" key="GridCell.Tab.0.center/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753591999" />
-    <state width="1878" height="148" key="GridCell.Tab.0.left" timestamp="1604753591998">
+    <state width="1878" height="262" key="GridCell.Tab.0.center/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604756640461" />
+    <state width="1878" height="262" key="GridCell.Tab.0.left" timestamp="1604756640461">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1878" height="148" key="GridCell.Tab.0.left/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753591998" />
-    <state width="1878" height="148" key="GridCell.Tab.0.right" timestamp="1604753592002">
+    <state width="1878" height="262" key="GridCell.Tab.0.left/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604756640461" />
+    <state width="1878" height="262" key="GridCell.Tab.0.right" timestamp="1604756640462">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1878" height="148" key="GridCell.Tab.0.right/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753592002" />
-    <state width="1865" height="330" key="GridCell.Tab.1.bottom" timestamp="1604744636010">
+    <state width="1878" height="262" key="GridCell.Tab.0.right/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604756640462" />
+    <state width="1878" height="262" key="GridCell.Tab.1.bottom" timestamp="1604756640465">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1865" height="330" key="GridCell.Tab.1.bottom/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604744636010" />
-    <state width="1865" height="330" key="GridCell.Tab.1.center" timestamp="1604744636010">
+    <state width="1878" height="262" key="GridCell.Tab.1.bottom/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604756640465" />
+    <state width="1878" height="262" key="GridCell.Tab.1.center" timestamp="1604756640464">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1865" height="330" key="GridCell.Tab.1.center/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604744636010" />
-    <state width="1865" height="330" key="GridCell.Tab.1.left" timestamp="1604744636009">
+    <state width="1878" height="262" key="GridCell.Tab.1.center/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604756640464" />
+    <state width="1878" height="262" key="GridCell.Tab.1.left" timestamp="1604756640463">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1865" height="330" key="GridCell.Tab.1.left/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604744636009" />
-    <state width="1865" height="330" key="GridCell.Tab.1.right" timestamp="1604744636010">
+    <state width="1878" height="262" key="GridCell.Tab.1.left/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604756640463" />
+    <state width="1878" height="262" key="GridCell.Tab.1.right" timestamp="1604756640464">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1865" height="330" key="GridCell.Tab.1.right/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604744636010" />
+    <state width="1878" height="262" key="GridCell.Tab.1.right/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604756640464" />
     <state x="448" y="-947" key="SettingsEditor" timestamp="1604752970249">
       <screen x="0" y="-1057" width="1920" height="1057" />
     </state>
