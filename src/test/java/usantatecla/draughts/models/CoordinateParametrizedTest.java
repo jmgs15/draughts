@@ -1,4 +1,4 @@
-package models;
+package java.usantatecla.draughts.models;
 
 import org.junit.Assert;
 import org.junit.Before;
