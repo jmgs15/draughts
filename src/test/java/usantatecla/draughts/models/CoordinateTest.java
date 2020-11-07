@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CoordinateWithoutParametrizedTest {
+public class CoordinateTest {
     private Coordinate coordinate;
     private Coordinate onNEDiagonalCoordinate;
     private final int row = 4;
