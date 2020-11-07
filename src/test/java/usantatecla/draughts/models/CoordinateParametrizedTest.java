@@ -1,52 +1,62 @@
-package java.usantatecla.draughts.models;
+package usantatecla.draughts.models;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import usantatecla.draughts.models.Coordinate;
 import org.junit.runners.Parameterized.Parameters;
-import usantatecla.draughts.models.Direction;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 @RunWith(Parameterized.class)
 public class CoordinateParametrizedTest {
-    private int OUTRow;
-    private int OUTColumn;
+    private final int OUTRow;
+    private final int OUTColumn;
 
-    private Coordinate coordinate;
-    private Direction expectedDirection;
+    private final Coordinate coordinate;
+    private final Direction expectedDirection;
 
-    private String getInstanceOf;
-    private Coordinate expectedCoordinateInGetInstance;
-    private boolean example1;
-    private boolean example2;
+    private final String getInstanceOf;
+    private final Coordinate expectedCoordinateInGetInstance;
+    private final boolean expectIsOnDiagonal;
 
-    @Parameters(name = "(Row: {0} Column: {1})")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-                {1, 1, new Coordinate(3, 3), Direction.NE, "32", new Coordinate(2, 1), true, false},
-                {1, 1, new Coordinate(1,2), null, "99", null, true, false},
-                {1, 1, new Coordinate(1,1), null, "unparseable", null, true, false},
-        });
-    }
+    private final int expectDiagonalDistance;
+
+    private final Coordinate betweenCoordinate;
+    private final List<Coordinate> expectedCoordinates;
+
 
     public CoordinateParametrizedTest(int OUTRow, int OUTColumn, Coordinate coordinate, Direction expectedDirection, String getInstanceOf,
-                                      Coordinate expectedCoordinateInGetInstance, boolean example1, boolean example2) {
+                                      Coordinate expectedCoordinateInGetInstance, boolean expectIsOnDiagonal, int expectDiagonalDistance,
+                                      Coordinate betweenCoordinate, List<Coordinate> expectedCoordinates) {
         this.OUTRow = OUTRow;
         this.OUTColumn = OUTColumn;
         this.coordinate = coordinate;
         this.expectedDirection = expectedDirection;
         this.getInstanceOf = getInstanceOf;
         this.expectedCoordinateInGetInstance = expectedCoordinateInGetInstance;
-        this.example1 = example1;
-        this.example2 = example2;
+        this.expectIsOnDiagonal = expectIsOnDiagonal;
+        this.expectDiagonalDistance = expectDiagonalDistance;
+        this.betweenCoordinate = betweenCoordinate;
+        this.expectedCoordinates = expectedCoordinates;
     }
 
     private Coordinate OUTCoordinate;
+
+    @Parameters(name = "(Row: {0} Column: {1}, Coordinate: {4})")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                {1, 1, new Coordinate(3, 3), Direction.NE, "32", new Coordinate(2, 1),
+                        true, 2, new Coordinate(3, 3), List.of(new Coordinate(2, 2))},
+                {1, 1, new Coordinate(1, 2), null, "99", null,
+                        false, 0, new Coordinate(1, 1), List.of()},
+                {1, 1, new Coordinate(1, 1), null, "unparseable", null,
+                        false, 0, null, null},
+        });
+    }
 
     @Before
     public void beforeEach() {
@@ -54,14 +64,41 @@ public class CoordinateParametrizedTest {
     }
 
     //No se como comprobar cuando getInstanceOf = null -> throws AssertionError
+
     @Test
     public void testGetInstance() {
-        Assert.assertEquals(expectedCoordinateInGetInstance, Coordinate.getInstance(getInstanceOf));
+        Assert.assertEquals(this.expectedCoordinateInGetInstance, Coordinate.getInstance(this.getInstanceOf));
     }
 
     @Test
     public void testGetDirection() {
-        Assert.assertEquals(expectedDirection, this.OUTCoordinate.getDirection(coordinate));
+        Assert.assertEquals(this.expectedDirection, this.OUTCoordinate.getDirection(this.coordinate));
+    }
+
+    @Test
+    public void testIsOnDiagonal() {
+        Assert.assertEquals(this.expectIsOnDiagonal, this.OUTCoordinate.isOnDiagonal(this.coordinate));
+    }
+
+    @Test
+    public void testGetDiagonalDistance() {
+        try {
+            int distance = this.OUTCoordinate.getDiagonalDistance(coordinate);
+            Assert.assertEquals(this.expectDiagonalDistance, distance);
+        } catch (AssertionError assertionError) {
+            assertionError.printStackTrace();
+        }
+    }
+
+    // No se si se puede poner el try catch para el AssertionError
+    @Test
+    public void testGetBetweenCoordinates() {
+        try {
+            List<Coordinate> coordinates = this.OUTCoordinate.getBetweenDiagonalCoordinates(betweenCoordinate);
+            Assert.assertEquals(this.expectedCoordinates, coordinates);
+        } catch (AssertionError error) {
+            error.printStackTrace();
+        }
     }
 
 }
