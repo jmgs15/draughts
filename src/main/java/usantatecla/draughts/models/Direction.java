@@ -1,6 +1,6 @@
 package usantatecla.draughts.models;
 
-enum Direction {
+public enum Direction {
     NE(1, 1), 
     SE(-1, 1), 
     SW(-1, -1), 
@@ -26,7 +26,7 @@ enum Direction {
         return true;
     }
     
-    Coordinate getDistanceCoordinate(int distance) {
+    public Coordinate getDistanceCoordinate(int distance) {
         int row = this.horizontalShift * distance;
         int column = this.verticalShift * distance;
         return new Coordinate(row, column);

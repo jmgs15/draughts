@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="299e18d1-8f8f-49c5-a53c-484fd9ba6561" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/draughts.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/models/CoordinateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usantatecla/draughts/models/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usantatecla/draughts/models/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usantatecla/draughts/models/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usantatecla/draughts/models/Direction.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit3 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jxLpjuh2q9nqo03su51Szw9lGi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="usantatecla.draughts.models" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CoordinateTest">
+    <configuration name="Damas" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="usantatecla.draughts.Draughts" />
+      <module name="draughts" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoordinateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="draughts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoordinateTest.getBetweenCoordinates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="draughts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
+      <option name="METHOD_NAME" value="getBetweenCoordinates" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoordinateTest.getBetweenDiagonalCoordinates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="draughts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
+      <option name="METHOD_NAME" value="getBetweenDiagonalCoordinates" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoordinateTest.getBetweenDiagonalCoordinatesIsNotOnDiagonal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="draughts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
+      <option name="METHOD_NAME" value="getBetweenDiagonalCoordinatesIsNotOnDiagonal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoordinateTest.testGetDiagonalDistance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="draughts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models" />
+      <option name="MAIN_CLASS_NAME" value="models.CoordinateTest" />
+      <option name="METHOD_NAME" value="testGetDiagonalDistance" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Damas" />
+      <item itemvalue="JUnit.CoordinateTest" />
+      <item itemvalue="JUnit.CoordinateTest.getBetweenCoordinates" />
+      <item itemvalue="JUnit.CoordinateTest.getBetweenDiagonalCoordinates" />
+      <item itemvalue="JUnit.CoordinateTest.getBetweenDiagonalCoordinatesIsNotOnDiagonal" />
+      <item itemvalue="JUnit.CoordinateTest.testGetDiagonalDistance" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CoordinateTest" />
+        <item itemvalue="JUnit.CoordinateTest.getBetweenCoordinates" />
+        <item itemvalue="JUnit.CoordinateTest.getBetweenDiagonalCoordinatesIsNotOnDiagonal" />
+        <item itemvalue="JUnit.CoordinateTest.testGetDiagonalDistance" />
+        <item itemvalue="JUnit.CoordinateTest.getBetweenDiagonalCoordinates" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="299e18d1-8f8f-49c5-a53c-484fd9ba6561" name="Default Changelist" comment="" />
+      <created>1604740983380</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604740983380</updated>
+      <workItem from="1604740984720" duration="713000" />
+      <workItem from="1604743448622" duration="8484000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="418" y="-867" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604752927845">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="418" y="-867" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604752927845" />
+    <state x="741" y="-781" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1604752908571">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="741" y="-781" key="#com.intellij.ide.macro.MacrosDialog/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604752908571" />
+    <state x="691" y="-644" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1604753567856">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="691" y="-644" key="#com.intellij.ide.util.PackageChooserDialog/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753567856" />
+    <state x="724" y="-657" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604753286488">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="724" y="-657" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753286488" />
+    <state width="1878" height="148" key="GridCell.Tab.0.bottom" timestamp="1604753592002">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="148" key="GridCell.Tab.0.bottom/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753592002" />
+    <state width="1878" height="148" key="GridCell.Tab.0.center" timestamp="1604753591999">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="148" key="GridCell.Tab.0.center/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753591999" />
+    <state width="1878" height="148" key="GridCell.Tab.0.left" timestamp="1604753591998">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="148" key="GridCell.Tab.0.left/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753591998" />
+    <state width="1878" height="148" key="GridCell.Tab.0.right" timestamp="1604753592002">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="148" key="GridCell.Tab.0.right/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753592002" />
+    <state width="1865" height="330" key="GridCell.Tab.1.bottom" timestamp="1604744636010">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1865" height="330" key="GridCell.Tab.1.bottom/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604744636010" />
+    <state width="1865" height="330" key="GridCell.Tab.1.center" timestamp="1604744636010">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1865" height="330" key="GridCell.Tab.1.center/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604744636010" />
+    <state width="1865" height="330" key="GridCell.Tab.1.left" timestamp="1604744636009">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1865" height="330" key="GridCell.Tab.1.left/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604744636009" />
+    <state width="1865" height="330" key="GridCell.Tab.1.right" timestamp="1604744636010">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1865" height="330" key="GridCell.Tab.1.right/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604744636010" />
+    <state x="448" y="-947" key="SettingsEditor" timestamp="1604752970249">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="448" y="-947" key="SettingsEditor/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604752970249" />
+    <state x="703" y="-736" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1604753577978">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="703" y="-736" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604753577978" />
+    <state x="625" y="-822" key="search.everywhere.popup" timestamp="1604752766549">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="625" y="-822" key="search.everywhere.popup/0.-1057.1920.1057/0.23.1280.713@0.-1057.1920.1057" timestamp="1604752766549" />
+  </component>
+</project>

@@ -44,7 +44,9 @@ public class Coordinate {
         return new Coordinate(this.row + coordinate.row, this.column + coordinate.column);
     }
 
-    Direction getDirection(Coordinate coordinate) {
+    //This method should be private (?)
+
+    public Direction getDirection(Coordinate coordinate) {
         assert coordinate != null;
         Coordinate substract = coordinate.substract(this);
         for (Direction direction : Direction.values()) 
@@ -53,11 +55,11 @@ public class Coordinate {
         return null;
     }
 
-    boolean isOnDiagonal(Coordinate coordinate) {
+    public boolean isOnDiagonal(Coordinate coordinate) {
         return this.getDirection(coordinate) != null;
     }
 
-    int getDiagonalDistance(Coordinate coordinate) {
+    public int getDiagonalDistance(Coordinate coordinate) {
         assert this.isOnDiagonal(coordinate);
         return Math.abs(this.substract(coordinate).getRow());
     }
@@ -68,7 +70,7 @@ public class Coordinate {
         return this.plus(direction.getDistanceCoordinate(1));
     }
 
-    List<Coordinate> getBetweenDiagonalCoordinates(Coordinate coordinate){
+    public List<Coordinate> getBetweenDiagonalCoordinates(Coordinate coordinate){
         assert this.isOnDiagonal(coordinate);
         List<Coordinate> coordinates = new ArrayList<Coordinate>();
         final Direction direction = this.getDirection(coordinate);
