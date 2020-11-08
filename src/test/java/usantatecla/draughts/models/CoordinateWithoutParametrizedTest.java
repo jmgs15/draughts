@@ -1,10 +1,10 @@
 package usantatecla.draughts.models;
 
+import java.util.Arrays;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.List;
 
 public class CoordinateWithoutParametrizedTest {
     private Coordinate coordinate;
@@ -92,6 +92,6 @@ public class CoordinateWithoutParametrizedTest {
         Coordinate coordinate = Direction.NE.getDistanceCoordinate(3);
         Coordinate coordinate2 = Direction.NE.getDistanceCoordinate(1);
         Coordinate coordinateBetween = new Coordinate(2, 2);
-        Assert.assertEquals(List.of(coordinateBetween), coordinate.getBetweenDiagonalCoordinates(coordinate2));
+        Assert.assertEquals(Arrays.asList(coordinateBetween), coordinate.getBetweenDiagonalCoordinates(coordinate2));
     }
 }

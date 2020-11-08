@@ -1,15 +1,15 @@
 package usantatecla.draughts.models;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 @RunWith(Parameterized.class)
 public class CoordinateParametrizedTest {
@@ -50,9 +50,9 @@ public class CoordinateParametrizedTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {1, 1, new Coordinate(3, 3), Direction.NE, "32", new Coordinate(2, 1),
-                        true, 2, new Coordinate(3, 3), List.of(new Coordinate(2, 2))},
+                        true, 2, new Coordinate(3, 3), Arrays.asList(new Coordinate(2, 2))},
                 {1, 1, new Coordinate(1, 2), null, "99", null,
-                        false, 0, new Coordinate(1, 1), List.of()},
+                        false, 0, new Coordinate(1, 1), Arrays.asList()},
                 {1, 1, new Coordinate(1, 1), null, "unparseable", null,
                         false, 0, null, null},
         });
@@ -86,7 +86,7 @@ public class CoordinateParametrizedTest {
             int distance = this.OUTCoordinate.getDiagonalDistance(coordinate);
             Assert.assertEquals(this.expectDiagonalDistance, distance);
         } catch (AssertionError assertionError) {
-            assertionError.printStackTrace();
+            //assertionError.printStackTrace();
         }
     }
 
@@ -97,7 +97,7 @@ public class CoordinateParametrizedTest {
             List<Coordinate> coordinates = this.OUTCoordinate.getBetweenDiagonalCoordinates(betweenCoordinate);
             Assert.assertEquals(this.expectedCoordinates, coordinates);
         } catch (AssertionError error) {
-            error.printStackTrace();
+            //error.printStackTrace();
         }
     }
 
