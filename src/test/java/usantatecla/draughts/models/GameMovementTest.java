@@ -79,7 +79,7 @@ public class GameMovementTest {
 				"     b  ",
 				"        ").build();
 		Error error = move(coordinate(6, 5), coordinate(4, 7), coordinate(3, 7));
-		assertEquals(error, Error.NOT_DIAGONAL);
+		assertEquals(Error.NOT_DIAGONAL, error);
 	}
 	
 	@Test
@@ -94,7 +94,7 @@ public class GameMovementTest {
 				"     b  ",
 				"        ").build();
 		Error error = move(coordinate(6, 5), coordinate(4, 7), coordinate(2, 5), coordinate(0, 7));
-		assertEquals(error, Error.NOT_EMPTY_TARGET);
+		assertEquals(Error.NOT_EMPTY_TARGET, error);
 		assertTrue(piece(coordinate(3, 6)) instanceof Pawn);
 		assertTrue(piece(coordinate(5, 6)) instanceof Draught);
 	}
@@ -111,7 +111,7 @@ public class GameMovementTest {
 				"     b  ",
 				"        ").build();
 		Error error = move(coordinate(6, 5), coordinate(4, 7), coordinate(2, 5), coordinate(1, 4));
-		assertEquals(error, Error.TOO_MUCH_JUMPS);
+		assertEquals(Error.TOO_MUCH_JUMPS, error);
 	}
 	
 	@Test
@@ -126,7 +126,7 @@ public class GameMovementTest {
 				"     b  ",
 				"        ").build();
 		Error error = move(coordinate(6, 5), coordinate(5, 4), coordinate(4, 3));
-		assertEquals(error, Error.TOO_MUCH_JUMPS);
+		assertEquals(Error.TOO_MUCH_JUMPS, error);
 	}
 	
 	@Test
@@ -158,7 +158,7 @@ public class GameMovementTest {
 				"       b",
 				"        ").build();
 		Error error = move(coordinate(6, 7), coordinate(4, 5), coordinate(6, 3));
-		assertEquals(error, Error.NOT_ADVANCED);
+		assertEquals(Error.NOT_ADVANCED, error);
 	}
 	
 	@Test
@@ -174,7 +174,7 @@ public class GameMovementTest {
 				"        ").build();
 		this.game.cancel();
 		Error error = move(coordinate(5, 4), coordinate(4, 3));
-		assertEquals(error, Error.NOT_ADVANCED);
+		assertEquals(Error.NOT_ADVANCED, error);
 	}
 	
 	@Test
@@ -189,7 +189,7 @@ public class GameMovementTest {
 				"       n",
 				"        ").build();
 		Error error = move(coordinate(6, 7), coordinate(5, 6));
-		assertEquals(error, Error.OPPOSITE_PIECE);
+		assertEquals(Error.OPPOSITE_PIECE, error);
 	}
 	
 	@Test
@@ -204,7 +204,7 @@ public class GameMovementTest {
 				"       n",
 				"        ").build();
 		Error error = move(coordinate(3, 0), coordinate(2, 1));
-		assertEquals(error, Error.EMPTY_ORIGIN);
+		assertEquals(Error.EMPTY_ORIGIN, error);
 	}
 	
 	@Test
@@ -219,7 +219,7 @@ public class GameMovementTest {
 				"       b",
 				"        ").build();
 		Error error = move(coordinate(6, 7), coordinate(4, 5));
-		assertEquals(error, Error.WITHOUT_EATING);
+		assertEquals(Error.WITHOUT_EATING, error);
 	}
 	
 	@Test
@@ -234,7 +234,7 @@ public class GameMovementTest {
 				"       b",
 				"        ").build();
 		Error error = move(coordinate(6, 7), coordinate(3, 4));
-		assertEquals(error, Error.TOO_MUCH_ADVANCED);
+		assertEquals(Error.TOO_MUCH_ADVANCED, error);
 	}
 	
 	@Test
@@ -249,7 +249,7 @@ public class GameMovementTest {
 				"       b",
 				"        ").build();
 		Error error = move(coordinate(6, 7), coordinate(4, 5));
-		assertEquals(error, Error.COLLEAGUE_EATING);
+		assertEquals(Error.COLLEAGUE_EATING, error);
 	}
 	
 	@Test
@@ -264,7 +264,7 @@ public class GameMovementTest {
 				"       b",
 				"        ").build();
 		Error error = move(coordinate(6, 7), coordinate(3, 4));
-		assertEquals(error, Error.TOO_MUCH_ADVANCED);
+		assertEquals(Error.TOO_MUCH_ADVANCED, error);
 	}
 	
 	@Test
@@ -279,7 +279,7 @@ public class GameMovementTest {
 				"       B",
 				"        ").build();
 		Error error = move(coordinate(6, 7), coordinate(3, 4));
-		assertEquals(error, Error.TOO_MUCH_EATINGS);
+		assertEquals(Error.TOO_MUCH_EATINGS, error);
 	}
 	
 	@Test
@@ -294,7 +294,7 @@ public class GameMovementTest {
 				"       B",
 				"        ").build();
 		Error error = move(coordinate(6, 7), coordinate(5, 7));
-		assertEquals(error, Error.NOT_DIAGONAL);
+		assertEquals(Error.NOT_DIAGONAL, error);
 	}
 	
 	@Test
@@ -309,7 +309,22 @@ public class GameMovementTest {
 				"       b",
 				"        ").build();
 		Error error = move(coordinate(6, 7), coordinate(6, 6));
-		assertEquals(error, Error.NOT_DIAGONAL);
+		assertEquals(Error.NOT_DIAGONAL, error);
+	}
+	
+	@Test
+	public void testWhenMovingPawnToSamePositionThenError() {
+		this.game = new GameBuilder().rows(
+				"        ",
+				"        ",
+				"        ",
+				"        ",
+				"     n  ",
+				"      n ",
+				"       b",
+				"        ").build();
+		Error error = move(coordinate(6, 7), coordinate(6, 7));
+		assertEquals(Error.NOT_EMPTY_TARGET, error);
 	}
 	
 	private Coordinate coordinate(int row, int column) {

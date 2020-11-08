@@ -47,26 +47,46 @@ public class PieceParameterizedTest {
 	@Parameters
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
-			{ pawn(white()),
-				coordinate(0, 0), true,
-				coordinate(5, 4), coordinate(4, 5), true,
-				Arrays.asList(pawn(black())), 0, new Coordinate[] {coordinate(5, 4), coordinate(3, 6)}, null}
-		});
+				{ pawn(white()),
+					coordinate(0, 0), true,
+					coordinate(5, 4), coordinate(4, 5), true,
+					Arrays.asList(pawn(black())), 0, new Coordinate[] { coordinate(5, 4), coordinate(3, 6) }, null },
+				{ pawn(black()),
+					coordinate(7, 3), true,
+					coordinate(5, 4), coordinate(4, 5), false,
+					Arrays.asList(pawn(white())), 0, new Coordinate[] { coordinate(3, 6), coordinate(4, 6) }, Error.NOT_DIAGONAL },
+				{ pawn(black()),
+					coordinate(0, 7), false,
+					coordinate(3, 4), coordinate(4, 5), true,
+					Arrays.asList(pawn(black())), 0, new Coordinate[] { coordinate(3, 6), coordinate(5, 4) }, Error.COLLEAGUE_EATING },
+				{ pawn(white()),
+					coordinate(1, 7), false,
+					coordinate(0, 0), coordinate(7, 7), false,
+					Arrays.asList(), 0, new Coordinate[] { coordinate(7, 7), coordinate(0, 0) }, Error.TOO_MUCH_ADVANCED },
+				{ pawn(white()),
+					coordinate(6, 4), false,
+					coordinate(7, 0), coordinate(0, 7), true,
+					Arrays.asList(), 0, new Coordinate[] { coordinate(7, 0), coordinate(5, 2) }, Error.WITHOUT_EATING },
+				{ draught(white()),
+					coordinate(5, 0), false,
+					coordinate(7, 7), coordinate(0, 0), true,
+					Arrays.asList(pawn(black()), pawn(black())), 0, new Coordinate[] { coordinate(3, 6), coordinate(5, 4) }, Error.TOO_MUCH_EATINGS }
+			});
 	}
 	
 	@Test
 	public void testIsLimit() {
-		assertEquals(this.piece.isLimit(coordinateToTestLimit), expectedIsLimit);
+		assertEquals(expectedIsLimit, this.piece.isLimit(coordinateToTestLimit));
 	}
 	
 	@Test
 	public void testIsAdvanced() {
-		assertEquals(this.piece.isAdvanced(coordinateOriginAdvance, coordinateTargetAdvance), expectedIsAdvancing);
+		assertEquals(expectedIsAdvancing, this.piece.isAdvanced(coordinateOriginAdvance, coordinateTargetAdvance));
 	}
 	
 	@Test
 	public void testIsCorrectMovement() {
-		assertEquals(this.piece.isCorrectMovement(betweenDiagonalPieces, pair, coordinatesCorrectMovement), expectedIsCorrectMovement);
+		assertEquals(expectedIsCorrectMovement, this.piece.isCorrectMovement(betweenDiagonalPieces, pair, coordinatesCorrectMovement));
 	}
 	
 	private static Draught draught(Color color) {
