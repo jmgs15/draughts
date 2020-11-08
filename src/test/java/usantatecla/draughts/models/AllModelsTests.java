@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	GameMovementTest.class,
 	GamePiecesTest.class,
 	CoordinateParametrizedTest.class,
-	CoordinateWithoutParametrizedTest.class
+	CoordinateWithoutParametrizedTest.class,
+	TurnParameterizedTest.class
 })
 public class AllModelsTests {
 }
