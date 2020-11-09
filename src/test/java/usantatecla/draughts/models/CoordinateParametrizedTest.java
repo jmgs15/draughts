@@ -15,16 +15,12 @@ import org.junit.runners.Parameterized.Parameters;
 public class CoordinateParametrizedTest {
     private final int OUTRow;
     private final int OUTColumn;
-
     private final Coordinate coordinate;
     private final Direction expectedDirection;
-
     private final String getInstanceOf;
     private final Coordinate expectedCoordinateInGetInstance;
     private final boolean expectIsOnDiagonal;
-
     private final int expectDiagonalDistance;
-
     private final Coordinate betweenCoordinate;
     private final List<Coordinate> expectedCoordinates;
 
@@ -63,8 +59,6 @@ public class CoordinateParametrizedTest {
         OUTCoordinate = new Coordinate(OUTRow, OUTColumn);
     }
 
-    //No se como comprobar cuando getInstanceOf = null -> throws AssertionError
-
     @Test
     public void testGetInstance() {
         Assert.assertEquals(this.expectedCoordinateInGetInstance, Coordinate.getInstance(this.getInstanceOf));
@@ -86,18 +80,17 @@ public class CoordinateParametrizedTest {
             int distance = this.OUTCoordinate.getDiagonalDistance(coordinate);
             Assert.assertEquals(this.expectDiagonalDistance, distance);
         } catch (AssertionError assertionError) {
-            //assertionError.printStackTrace();
         }
     }
 
-    // No se si se puede poner el try catch para el AssertionError
     @Test
     public void testGetBetweenCoordinates() {
         try {
             List<Coordinate> coordinates = this.OUTCoordinate.getBetweenDiagonalCoordinates(betweenCoordinate);
             Assert.assertEquals(this.expectedCoordinates, coordinates);
         } catch (AssertionError error) {
-            //error.printStackTrace();
+        } catch (Exception ex) {
+            Assert.fail();
         }
     }
 
