@@ -18,4 +18,9 @@ public class Draught extends Piece {
 		return super.getCode().toUpperCase();
   }
 
+	@Override
+	public Piece copy() {
+		return new Draught(this.getColor());
+	}
+
 }

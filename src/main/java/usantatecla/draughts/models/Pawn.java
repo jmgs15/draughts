@@ -24,5 +24,10 @@ public class Pawn extends Piece {
     protected char[] getCodes() {
 		return Pawn.CHARACTERS;
 	}
+
+	@Override
+	public Piece copy() {
+		return new Pawn(this.getColor());
+	}
     
 }

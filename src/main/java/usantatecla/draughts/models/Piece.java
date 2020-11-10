@@ -51,6 +51,8 @@ public abstract class Piece {
 	public String getCode(){
 		return Piece.CODES[this.color.ordinal()];
 	}
+	
+	public abstract Piece copy();
 
 	@Override
 	public int hashCode() {

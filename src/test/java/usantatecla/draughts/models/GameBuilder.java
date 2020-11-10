@@ -16,7 +16,7 @@ public class GameBuilder {
 			String row = rows[i];
 			assert row.length() == Coordinate.getDimension();
 			for (int j = 0; j < row.length(); j++) {
-				Color color = getColor(row.charAt(j));
+				Color color = color(row.charAt(j));
 				if (color != null) {
 					Piece piece = new Pawn(color);
 					if (Character.isUpperCase(row.charAt(j))) {
@@ -29,7 +29,7 @@ public class GameBuilder {
 		return this;
 	}
 	
-	private Color getColor(char color) {
+	private Color color(char color) {
 		switch(color) {
 		case 'b':
 		case 'B':

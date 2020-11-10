@@ -11,23 +11,27 @@ public class GameMovementTest {
 
 	Game game;
 	
+	private static Game game(String... rows) {
+		return new GameBuilder().rows(rows).build();
+	}
+	
 	@Test
 	public void testGivenBlockedPawnThenReturnTrue() {
-		this.game = new GameBuilder().rows(
-				"        ",
-				"        ",
-				" n   n  ",
-				"  n n   ",
-				"   b    ",
-				"        ",
-				"        ",
-				"        ").build();
+		this.game = game(
+			"        ",
+			"        ",
+			" n   n  ",
+			"  n n   ",
+			"   b    ",
+			"        ",
+			"        ",
+			"        ");
 		assertTrue(this.game.isBlocked());
 	}
 	
 	@Test
 	public void testGivenUnblockedPawnThenReturnFalse() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				" n      ",
@@ -35,13 +39,13 @@ public class GameMovementTest {
 				"   b    ",
 				"  n n   ",
 				" n   n  ",
-				"        ").build();
+				"        ");
 		assertFalse(this.game.isBlocked());
 	}
 	
 	@Test
 	public void testGivenBlockedDraughtThenReturnTrue() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"  n     ",
 				" n      ",
@@ -49,13 +53,13 @@ public class GameMovementTest {
 				" n      ",
 				"  n     ",
 				"        ",
-				"        ").build();
+				"        ");
 		assertTrue(this.game.isBlocked());
 	}
 	
 	@Test
 	public void testGivenUnblockedDraughtThenReturnFalse() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"     n  ",
@@ -63,13 +67,13 @@ public class GameMovementTest {
 				"       B",
 				"      n ",
 				"        ",
-				"        ").build();
+				"        ");
 		assertFalse(this.game.isBlocked());
 	}
 	
 	@Test
 	public void testWhenPairMoveAndMoveVerticalThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"      n ",
 				"        ",
@@ -77,14 +81,14 @@ public class GameMovementTest {
 				"        ",
 				"      n ",
 				"     b  ",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 5), coordinate(4, 7), coordinate(3, 7));
 		assertEquals(Error.NOT_DIAGONAL, error);
 	}
 	
 	@Test
 	public void testWhenPairMoveAndErrorThenRestorePiecesCorrectly() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"       n",
 				"      n ",
 				"        ",
@@ -92,7 +96,7 @@ public class GameMovementTest {
 				"        ",
 				"      N ",
 				"     b  ",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 5), coordinate(4, 7), coordinate(2, 5), coordinate(0, 7));
 		assertEquals(Error.NOT_EMPTY_TARGET, error);
 		assertTrue(piece(coordinate(3, 6)) instanceof Pawn);
@@ -101,7 +105,7 @@ public class GameMovementTest {
 	
 	@Test
 	public void testWhenMoreThanTwoMovementsWithoutEatingInEachMovementThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"       n",
 				"      n ",
 				"        ",
@@ -109,14 +113,14 @@ public class GameMovementTest {
 				"        ",
 				"      N ",
 				"     b  ",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 5), coordinate(4, 7), coordinate(2, 5), coordinate(1, 4));
 		assertEquals(Error.TOO_MUCH_JUMPS, error);
 	}
 	
 	@Test
 	public void testWhenMoreThanTwoMovementsWithoutEatingThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"       n",
 				"      n ",
 				"        ",
@@ -124,14 +128,14 @@ public class GameMovementTest {
 				"        ",
 				"      N ",
 				"     b  ",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 5), coordinate(5, 4), coordinate(4, 3));
 		assertEquals(Error.TOO_MUCH_JUMPS, error);
 	}
 	
 	@Test
 	public void testWhenEatingMultiplePiecesReachingLimitThenConvertIntoDraught() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"  n     ",
 				"        ",
@@ -139,7 +143,7 @@ public class GameMovementTest {
 				"        ",
 				"      N ",
 				"       b",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(4, 5), coordinate(2, 3), coordinate(0, 1));
 		assertNull(error);
 		assertTrue(piece(coordinate(0, 1)) instanceof Draught);
@@ -148,7 +152,7 @@ public class GameMovementTest {
 	
 	@Test
 	public void testWhenMovingBackWhitesThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -156,14 +160,14 @@ public class GameMovementTest {
 				"        ",
 				"    n N ",
 				"       b",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(4, 5), coordinate(6, 3));
 		assertEquals(Error.NOT_ADVANCED, error);
 	}
 	
 	@Test
 	public void testWhenMovingBackBlacksThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -171,7 +175,7 @@ public class GameMovementTest {
 				"        ",
 				"    n   ",
 				"       b",
-				"        ").build();
+				"        ");
 		this.game.cancel();
 		Error error = move(coordinate(5, 4), coordinate(4, 3));
 		assertEquals(Error.NOT_ADVANCED, error);
@@ -179,7 +183,7 @@ public class GameMovementTest {
 	
 	@Test
 	public void testWhenMovingOppositePieceThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -187,14 +191,14 @@ public class GameMovementTest {
 				"        ",
 				"        ",
 				"       n",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(5, 6));
 		assertEquals(Error.OPPOSITE_PIECE, error);
 	}
 	
 	@Test
 	public void testWhenSelectingEmptyOriginThenReturnError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -202,14 +206,14 @@ public class GameMovementTest {
 				"        ",
 				"        ",
 				"       n",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(3, 0), coordinate(2, 1));
 		assertEquals(Error.EMPTY_ORIGIN, error);
 	}
 	
 	@Test
 	public void testWhenMovingDoubleThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -217,14 +221,14 @@ public class GameMovementTest {
 				"        ",
 				"        ",
 				"       b",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(4, 5));
 		assertEquals(Error.WITHOUT_EATING, error);
 	}
 	
 	@Test
 	public void testWhenMovingTripleThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -232,14 +236,14 @@ public class GameMovementTest {
 				"        ",
 				"        ",
 				"       b",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(3, 4));
 		assertEquals(Error.TOO_MUCH_ADVANCED, error);
 	}
 	
 	@Test
 	public void testWhenEatingColleagueThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -247,14 +251,14 @@ public class GameMovementTest {
 				"        ",
 				"      b ",
 				"       b",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(4, 5));
 		assertEquals(Error.COLLEAGUE_EATING, error);
 	}
 	
 	@Test
 	public void testWhenPawnEatingTwoThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -262,14 +266,14 @@ public class GameMovementTest {
 				"     n  ",
 				"      n ",
 				"       b",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(3, 4));
 		assertEquals(Error.TOO_MUCH_ADVANCED, error);
 	}
 	
 	@Test
 	public void testWhenDraughtEatingTwoThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -277,14 +281,14 @@ public class GameMovementTest {
 				"     n  ",
 				"      n ",
 				"       B",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(3, 4));
 		assertEquals(Error.TOO_MUCH_EATINGS, error);
 	}
 	
 	@Test
 	public void testWhenMovingDraughtVerticalThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -292,14 +296,14 @@ public class GameMovementTest {
 				"     n  ",
 				"      n ",
 				"       B",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(5, 7));
 		assertEquals(Error.NOT_DIAGONAL, error);
 	}
 	
 	@Test
 	public void testWhenMovingPawnHorizontalThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -307,14 +311,14 @@ public class GameMovementTest {
 				"     n  ",
 				"      n ",
 				"       b",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(6, 6));
 		assertEquals(Error.NOT_DIAGONAL, error);
 	}
 	
 	@Test
 	public void testWhenMovingPawnToSamePositionThenError() {
-		this.game = new GameBuilder().rows(
+		this.game = game(
 				"        ",
 				"        ",
 				"        ",
@@ -322,7 +326,7 @@ public class GameMovementTest {
 				"     n  ",
 				"      n ",
 				"       b",
-				"        ").build();
+				"        ");
 		Error error = move(coordinate(6, 7), coordinate(6, 7));
 		assertEquals(Error.NOT_EMPTY_TARGET, error);
 	}

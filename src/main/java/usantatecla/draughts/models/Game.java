@@ -35,11 +35,12 @@ public class Game {
 	public Error move(Coordinate... coordinates) {
 		Error error = null;
 		List<Coordinate> removedCoordinates = new ArrayList<Coordinate>();
+		List<Piece> removedPieces = new ArrayList<Piece>();
 		int pair = 0;
 		do {
 			error = this.isCorrectPairMove(pair, coordinates);
 			if (error == null) {
-				this.pairMove(removedCoordinates, pair, coordinates);
+				this.pairMove(removedCoordinates, removedPieces, pair, coordinates);
 				pair++;
 			}
 		} while (pair < coordinates.length - 1 && error == null);
@@ -47,7 +48,7 @@ public class Game {
 		if (error == null)
 			this.turn.change();
 		else
-			this.unMovesUntilPair(removedCoordinates, pair, coordinates);
+			this.unMovesUntilPair(removedCoordinates, removedPieces, pair, coordinates);
 		return error;
 	}
 
@@ -65,10 +66,12 @@ public class Game {
 		return this.board.getPiece(coordinates[pair]).isCorrectMovement(betweenDiagonalPieces, pair, coordinates);
 	}
 
-	private void pairMove(List<Coordinate> removedCoordinates, int pair, Coordinate... coordinates) {
+	private void pairMove(List<Coordinate> removedCoordinates, List<Piece> removedPieces, int pair, Coordinate... coordinates) {
 		Coordinate forRemoving = this.getBetweenDiagonalPiece(pair, coordinates);
 		if (forRemoving != null) {
+			Piece forRemovingPiece = this.getPiece(forRemoving).copy();
 			removedCoordinates.add(0, forRemoving);
+			removedPieces.add(0, forRemovingPiece);
 			this.board.remove(forRemoving);
 		}
 		this.board.move(coordinates[pair], coordinates[pair + 1]);
@@ -99,11 +102,14 @@ public class Game {
 		return null;
 	}
 
-	private void unMovesUntilPair(List<Coordinate> removedCoordinates, int pair, Coordinate... coordinates) {
+	private void unMovesUntilPair(List<Coordinate> removedCoordinates, List<Piece> removedPieces, int pair, Coordinate... coordinates) {
 		for (int j = pair; j > 0; j--)
 			this.board.move(coordinates[j], coordinates[j - 1]);
-		for (Coordinate removedPiece : removedCoordinates)
-			this.board.put(removedPiece, new Pawn(this.getOppositeTurnColor()));
+		for (int i = 0; i < removedCoordinates.size(); i++) {
+			Coordinate removedCoordinate = removedCoordinates.get(i);
+			Piece removedPiece = removedPieces.get(i);
+			this.board.put(removedCoordinate, removedPiece);
+		}
 	}
 
 	public boolean isBlocked() {
