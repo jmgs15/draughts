@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CoordinateWithoutParametrizedTest {
+public class CoordinateAssertionErrorTest {
     private Coordinate coordinate;
 
     private final int row = 4;
