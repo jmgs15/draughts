@@ -19,19 +19,23 @@ public class ColorTest {
 
     @Test
     public void testGetInitialColorWhenCoordinateIsOnInitialRowsShouldReturnColor() {
-        Assert.assertEquals(black, Color.getInitialColor(new Coordinate(0, 1)));
-        Assert.assertEquals(white, Color.getInitialColor(new Coordinate(5, 0)));
+        Assert.assertEquals(black, Color.getInitialColor(coordinate(0, 1)));
+        Assert.assertEquals(white, Color.getInitialColor(coordinate(5, 0)));
     }
 
     @Test
     public void testGetInitialColorWhenCoordinateIsWhiteShouldReturnNull() {
-        Assert.assertNull(Color.getInitialColor(new Coordinate(0, 0)));
-        Assert.assertNull(Color.getInitialColor(new Coordinate(2, 2)));
+        Assert.assertNull(Color.getInitialColor(coordinate(0, 0)));
+        Assert.assertNull(Color.getInitialColor(coordinate(2, 2)));
     }
 
     @Test
     public void testGetInitialColorWhenCoordinateDoesntHavePieceShouldReturnNull() {
-        Assert.assertNull(Color.getInitialColor(new Coordinate(3, 3)));
-        Assert.assertNull(Color.getInitialColor(new Coordinate(4, 4)));
+        Assert.assertNull(Color.getInitialColor(coordinate(3, 3)));
+        Assert.assertNull(Color.getInitialColor(coordinate(4, 4)));
+    }
+
+    private static Coordinate coordinate(int row, int column) {
+        return new Coordinate(row, column);
     }
 }

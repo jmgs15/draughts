@@ -6,12 +6,15 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	GameMovementTest.class,
-	GamePiecesTest.class,
-	CoordinateParametrizedTest.class,
-	CoordinateWithoutParametrizedTest.class,
-	TurnParameterizedTest.class,
-	PieceParameterizedTest.class
+        GameMovementTest.class,
+        GamePiecesTest.class,
+        CoordinateParametrizedTest.class,
+        CoordinateWithoutParametrizedTest.class,
+        TurnParameterizedTest.class,
+        PieceParameterizedTest.class,
+        StateTest.class,
+        ColorTest.class,
+        DirectionParametrizedTest.class
 })
 public class AllModelsTests {
 }
