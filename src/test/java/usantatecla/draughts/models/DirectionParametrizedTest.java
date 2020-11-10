@@ -18,7 +18,7 @@ public class DirectionParametrizedTest {
     private final int distance;
     private final Coordinate expectedDistancedCoordinate;
 
-    @Parameters(name = "(Direction: {0} Coordinate: {1}, distance: {3}")
+    @Parameters(name = "(Direction: {0}, Coordinate: {1}, Distance: {3}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {Direction.NE, new Coordinate(2, 2), true, 2, new Coordinate(2, 2)},

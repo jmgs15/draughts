@@ -10,13 +10,18 @@ public class CoordinateWithoutParametrizedTest {
     private Coordinate coordinate;
     private Coordinate onNEDiagonalCoordinate;
 
-    private final int row = 4;
-    private final int column = 5;
+    private int row() {
+        return 4;
+    }
+
+    private int column() {
+        return 5;
+    }
 
     @Before
     public void beforeAll() {
-        this.coordinate = new Coordinate(this.getRow(), this.getColumn());
-        this.onNEDiagonalCoordinate = new Coordinate(this.getRow() + 2, this.getColumn() + 2);
+        this.coordinate = new Coordinate(this.row(), this.column());
+        this.onNEDiagonalCoordinate = new Coordinate(this.row() + 2, this.column() + 2);
     }
 
     @Test(expected = AssertionError.class)
@@ -47,13 +52,13 @@ public class CoordinateWithoutParametrizedTest {
 
     @Test
     public void testGetDirectionWithInvalidInput() {
-        this.coordinate.getDirection(new Coordinate(this.getRow() + 1, this.getColumn()));
-        Assert.assertNull(this.coordinate.getDirection(new Coordinate(this.getRow(), this.getColumn())));
+        this.coordinate.getDirection(new Coordinate(this.row() + 1, this.column()));
+        Assert.assertNull(this.coordinate.getDirection(new Coordinate(this.row(), this.column())));
     }
 
     @Test
     public void testGetDirection() {
-        Assert.assertEquals(Direction.SW, this.coordinate.getDirection(new Coordinate(this.getRow() - 1, this.getColumn() - 1)));
+        Assert.assertEquals(Direction.SW, this.coordinate.getDirection(new Coordinate(this.row() - 1, this.column() - 1)));
     }
 
     @Test
@@ -63,7 +68,7 @@ public class CoordinateWithoutParametrizedTest {
 
     @Test
     public void testIsOnDiagonalIsFalse() {
-        this.coordinate.isOnDiagonal(new Coordinate(this.getRow() + 1, this.getColumn()));
+        this.coordinate.isOnDiagonal(new Coordinate(this.row() + 1, this.column()));
     }
 
     @Test(expected = AssertionError.class)
@@ -74,7 +79,7 @@ public class CoordinateWithoutParametrizedTest {
     @Test
     public void testGetDiagonalDistance() {
         Assert.assertEquals(2, this.coordinate.getDiagonalDistance(this.onNEDiagonalCoordinate));
-        Assert.assertEquals(1, this.coordinate.getDiagonalDistance(new Coordinate(this.getRow() + 1, this.getColumn() + 1)));
+        Assert.assertEquals(1, this.coordinate.getDiagonalDistance(new Coordinate(this.row() + 1, this.column() + 1)));
     }
 
     @Test(expected = AssertionError.class)
@@ -96,11 +101,9 @@ public class CoordinateWithoutParametrizedTest {
         Assert.assertEquals(Arrays.asList(coordinateBetween), coordinate.getBetweenDiagonalCoordinates(coordinate2));
     }
 
-    private int getRow() {
-        return row;
+    @Test(expected = AssertionError.class)
+    public void getBetweenCoordinatesNullParameter() {
+        Assert.assertNull( this.coordinate.getBetweenDiagonalCoordinates(null));
     }
 
-    private int getColumn() {
-        return column;
-    }
 }
