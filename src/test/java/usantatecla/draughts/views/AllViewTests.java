@@ -5,6 +5,9 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({})
+@SuiteClasses({
+        StartViewTest.class,
+        ViewTest.class
+})
 public class AllViewTests {
 }
