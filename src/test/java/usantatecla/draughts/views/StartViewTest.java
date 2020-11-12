@@ -24,7 +24,7 @@ public class StartViewTest {
 
     @Spy
     private Console console;
-    
+
     @InjectMocks
     private final StartView startView = new StartView();
 
