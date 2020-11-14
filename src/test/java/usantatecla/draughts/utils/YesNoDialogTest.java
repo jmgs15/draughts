@@ -1,30 +1,31 @@
 package usantatecla.draughts.utils;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 public class YesNoDialogTest {
+
+    @InjectMocks
+    private YesNoDialog yesNoDialog;
 
     @Mock
     Console console;
 
-    @InjectMocks
-    private YesNoDialog yesNoDialog = new YesNoDialog();
-
-    private char YES = 'y';
-    private char NO = 'n';
+    private char AFIRMATIVE = 'y';
+    private char NEGATIVE = 'n';
+    private final String ERROR = "The value must be '" + AFIRMATIVE + "' or '" + NEGATIVE + "'";
 
     @Before
     public void before() {
-        MockitoAnnotations.initMocks(this);
-        this.yesNoDialog = new YesNoDialog();
+        initMocks(this);
     }
 
     @Test(expected = AssertionError.class)
@@ -34,7 +35,20 @@ public class YesNoDialogTest {
 
     @Test
     public void testAnswerYes() {
-        Mockito.when(this.console.readChar(any())).thenReturn(this.YES);
-//        Assert.assertTrue(this.yesNoDialog.read("title"));
+        when(this.console.readChar(any())).thenReturn(this.AFIRMATIVE);
+        assertTrue(this.yesNoDialog.read("title"));
+    }
+
+    @Test
+    public void testAnswerNo() {
+        when(this.console.readChar(any())).thenReturn(this.NEGATIVE);
+        assertFalse(this.yesNoDialog.read("title"));
+    }
+
+    @Test
+    public void testWrongAnswer() {
+        when(this.console.readChar(any())).thenReturn('x', this.NEGATIVE);
+        this.yesNoDialog.read("title");
+        verify(console, times(1)).writeln(ERROR);
     }
 }

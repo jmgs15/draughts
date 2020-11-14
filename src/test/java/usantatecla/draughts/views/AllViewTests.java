@@ -6,8 +6,11 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
+        ViewTest.class,
         StartViewTest.class,
-        ViewTest.class
+        GameViewTest.class,
+        PlayViewTest.class,
+        ResumeViewTest.class
 })
 public class AllViewTests {
 }

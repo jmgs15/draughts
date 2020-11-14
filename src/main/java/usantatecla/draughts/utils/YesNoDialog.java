@@ -7,7 +7,7 @@ public class YesNoDialog  {
 	private static final String QUESTION = "? ("+YesNoDialog.AFIRMATIVE+"/"+YesNoDialog.NEGATIVE+"): ";
 	private static final String ERROR = "The value must be '" + YesNoDialog.AFIRMATIVE + "' or '"
 			+ YesNoDialog.NEGATIVE + "'";
-    public Console console;
+    private Console console;
 
     public YesNoDialog(){
         this.console = new Console();

@@ -5,6 +5,9 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({})
+@SuiteClasses({
+        YesNoDialogTest.class,
+        ConsoleTest.class
+})
 public class AllUtilsTests {
 }

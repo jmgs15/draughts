@@ -18,7 +18,7 @@ public class PlayViewTest {
     private static final String LOST_MESSAGE = "Derrota!!! No puedes mover tus fichas!!!";
 
     @InjectMocks
-    PlayView playView = new PlayView();
+    PlayView playView;
 
     @Mock
     Console console;
