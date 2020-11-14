@@ -123,7 +123,7 @@ public class GameViewTest {
 
     private List<String> bodyLines() {
         String output = this.outContent.toString();
-        List<String> lines = new ArrayList<>(Arrays.asList(output.split("\n")));
+        List<String> lines = new ArrayList<>(Arrays.asList(output.split("\r\n")));
         lines.remove(0);
         lines.remove(lines.size() - 1);
         return lines;
@@ -145,7 +145,7 @@ public class GameViewTest {
 
     private List<String> topAndBottomNumberLines() {
         String output = this.outContent.toString();
-        String[] lines = output.split("\n");
+        String[] lines = output.split("\r\n");
         List<String> numberLines = new ArrayList<>();
         numberLines.add(lines[0]);
         numberLines.add(lines[lines.length-1]);
