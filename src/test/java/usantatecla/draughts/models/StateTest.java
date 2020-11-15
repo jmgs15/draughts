@@ -1,9 +1,6 @@
 package usantatecla.draughts.models;
 
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.JVM)
@@ -11,8 +8,8 @@ public class StateTest {
 
     private static State state;
 
-    @BeforeClass
-    public static void beforeClass() {
+    @Before
+    public void before() {
         state = new State();
     }
 
@@ -33,6 +30,7 @@ public class StateTest {
 
     @Test(expected = AssertionError.class)
     public void testNextWhenStateValueIsExitShouldThrowsError() {
+        avanzarEstadoHasta(state, StateValue.EXIT);
         state.next();
     }
 
@@ -45,5 +43,11 @@ public class StateTest {
     private StateValue getStateValue(int position) {
         StateValue[] values = StateValue.values();
         return values[position];
+    }
+
+    private void avanzarEstadoHasta(State state, StateValue stateValue) {
+        while (state.getValueState() != stateValue) {
+            state.next();
+        }
     }
 }
