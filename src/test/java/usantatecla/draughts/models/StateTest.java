@@ -30,7 +30,7 @@ public class StateTest {
 
     @Test(expected = AssertionError.class)
     public void testNextWhenStateValueIsExitShouldThrowsError() {
-        avanzarEstadoHasta(state, StateValue.EXIT);
+        this.advanceStateTo(StateValue.EXIT);
         state.next();
     }
 
@@ -45,7 +45,7 @@ public class StateTest {
         return values[position];
     }
 
-    private void avanzarEstadoHasta(State state, StateValue stateValue) {
+    private void advanceStateTo(StateValue stateValue) {
         while (state.getValueState() != stateValue) {
             state.next();
         }

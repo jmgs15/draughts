@@ -7,7 +7,7 @@ class ResumeView extends SubView {
 
     private static final String MESSAGE = "¿Queréis jugar otra";
     
-    private YesNoDialog yesNoDialog;
+    private final YesNoDialog yesNoDialog;
 
     ResumeView(){
         super();

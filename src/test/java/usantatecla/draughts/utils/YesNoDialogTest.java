@@ -19,9 +19,9 @@ public class YesNoDialogTest {
     @Mock
     Console console;
 
-    private char AFIRMATIVE = 'y';
-    private char NEGATIVE = 'n';
-    private final String ERROR = "The value must be '" + AFIRMATIVE + "' or '" + NEGATIVE + "'";
+    private final char AFFIRMATIVE = 'y';
+    private final char NEGATIVE = 'n';
+    private final String ERROR = "The value must be '" + AFFIRMATIVE + "' or '" + NEGATIVE + "'";
 
     @Before
     public void before() {
@@ -35,7 +35,7 @@ public class YesNoDialogTest {
 
     @Test
     public void testAnswerYes() {
-        when(this.console.readChar(any())).thenReturn(this.AFIRMATIVE);
+        when(this.console.readChar(any())).thenReturn(this.AFFIRMATIVE);
         assertTrue(this.yesNoDialog.read("title"));
     }
 
