@@ -3,7 +3,6 @@ package usantatecla.draughts.models;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
 
-@FixMethodOrder(MethodSorters.JVM)
 public class StateTest {
 
     private static State state;
