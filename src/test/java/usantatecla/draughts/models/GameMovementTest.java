@@ -82,7 +82,7 @@ public class GameMovementTest {
 				"      n ",
 				"     b  ",
 				"        ");
-		Error error = move(coordinate(6, 5), coordinate(4, 7), coordinate(3, 7));
+		Error error = checkMoveError(coordinate(6, 5), coordinate(4, 7), coordinate(3, 7));
 		assertEquals(Error.NOT_DIAGONAL, error);
 	}
 	
@@ -97,7 +97,7 @@ public class GameMovementTest {
 				"      N ",
 				"     b  ",
 				"        ");
-		Error error = move(coordinate(6, 5), coordinate(4, 7), coordinate(2, 5), coordinate(0, 7));
+		Error error = checkMoveError(coordinate(6, 5), coordinate(4, 7), coordinate(2, 5), coordinate(0, 7));
 		assertEquals(Error.NOT_EMPTY_TARGET, error);
 		assertTrue(piece(coordinate(3, 6)) instanceof Pawn);
 		assertTrue(piece(coordinate(5, 6)) instanceof Draught);
@@ -114,7 +114,7 @@ public class GameMovementTest {
 				"      N ",
 				"     b  ",
 				"        ");
-		Error error = move(coordinate(6, 5), coordinate(4, 7), coordinate(2, 5), coordinate(1, 4));
+		Error error = checkMoveError(coordinate(6, 5), coordinate(4, 7), coordinate(2, 5), coordinate(1, 4));
 		assertEquals(Error.TOO_MUCH_JUMPS, error);
 	}
 	
@@ -129,7 +129,7 @@ public class GameMovementTest {
 				"      N ",
 				"     b  ",
 				"        ");
-		Error error = move(coordinate(6, 5), coordinate(5, 4), coordinate(4, 3));
+		Error error = checkMoveError(coordinate(6, 5), coordinate(5, 4), coordinate(4, 3));
 		assertEquals(Error.TOO_MUCH_JUMPS, error);
 	}
 	
@@ -144,8 +144,10 @@ public class GameMovementTest {
 				"      N ",
 				"       b",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(4, 5), coordinate(2, 3), coordinate(0, 1));
+		final Coordinate[] coordinates = { coordinate(6, 7), coordinate(4, 5), coordinate(2, 3), coordinate(0, 1) };
+		Error error = checkMoveError(coordinates);
 		assertEquals(error, Error.NULL);
+		move(coordinates);
 		assertTrue(piece(coordinate(0, 1)) instanceof Draught);
 		assertNull(piece(coordinate(1, 2)));
 	}
@@ -161,7 +163,7 @@ public class GameMovementTest {
 				"    n N ",
 				"       b",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(4, 5), coordinate(6, 3));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(4, 5), coordinate(6, 3));
 		assertEquals(Error.NOT_ADVANCED, error);
 	}
 	
@@ -177,7 +179,7 @@ public class GameMovementTest {
 				"       b",
 				"        ");
 		this.game.cancel();
-		Error error = move(coordinate(5, 4), coordinate(4, 3));
+		Error error = checkMoveError(coordinate(5, 4), coordinate(4, 3));
 		assertEquals(Error.NOT_ADVANCED, error);
 	}
 	
@@ -192,7 +194,7 @@ public class GameMovementTest {
 				"        ",
 				"       n",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(5, 6));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(5, 6));
 		assertEquals(Error.OPPOSITE_PIECE, error);
 	}
 	
@@ -207,7 +209,7 @@ public class GameMovementTest {
 				"        ",
 				"       n",
 				"        ");
-		Error error = move(coordinate(3, 0), coordinate(2, 1));
+		Error error = checkMoveError(coordinate(3, 0), coordinate(2, 1));
 		assertEquals(Error.EMPTY_ORIGIN, error);
 	}
 	
@@ -222,7 +224,7 @@ public class GameMovementTest {
 				"        ",
 				"       b",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(4, 5));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(4, 5));
 		assertEquals(Error.WITHOUT_EATING, error);
 	}
 	
@@ -237,7 +239,7 @@ public class GameMovementTest {
 				"        ",
 				"       b",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(3, 4));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(3, 4));
 		assertEquals(Error.TOO_MUCH_ADVANCED, error);
 	}
 	
@@ -252,7 +254,7 @@ public class GameMovementTest {
 				"      b ",
 				"       b",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(4, 5));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(4, 5));
 		assertEquals(Error.COLLEAGUE_EATING, error);
 	}
 	
@@ -267,7 +269,7 @@ public class GameMovementTest {
 				"      n ",
 				"       b",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(3, 4));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(3, 4));
 		assertEquals(Error.TOO_MUCH_ADVANCED, error);
 	}
 	
@@ -282,7 +284,7 @@ public class GameMovementTest {
 				"      n ",
 				"       B",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(3, 4));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(3, 4));
 		assertEquals(Error.TOO_MUCH_EATINGS, error);
 	}
 	
@@ -297,7 +299,7 @@ public class GameMovementTest {
 				"      n ",
 				"       B",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(5, 7));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(5, 7));
 		assertEquals(Error.NOT_DIAGONAL, error);
 	}
 	
@@ -312,7 +314,7 @@ public class GameMovementTest {
 				"      n ",
 				"       b",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(6, 6));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(6, 6));
 		assertEquals(Error.NOT_DIAGONAL, error);
 	}
 	
@@ -327,7 +329,7 @@ public class GameMovementTest {
 				"      n ",
 				"       b",
 				"        ");
-		Error error = move(coordinate(6, 7), coordinate(6, 7));
+		Error error = checkMoveError(coordinate(6, 7), coordinate(6, 7));
 		assertEquals(Error.NOT_EMPTY_TARGET, error);
 	}
 	
@@ -338,8 +340,12 @@ public class GameMovementTest {
 	private Piece piece(Coordinate coordinate) {
 		return this.game.getPiece(coordinate);
 	}
-	
-	private Error move(Coordinate... coordinates) {
-		return this.game.move(coordinates);
+
+	private void move(Coordinate... coordinates) {
+		this.game.move(coordinates);
+	}
+
+	private Error checkMoveError(Coordinate... coordinates) {
+		return this.game.checkMoveError(coordinates);
 	}
 }

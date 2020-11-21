@@ -17,7 +17,10 @@ class MoveController extends Controller {
         assert coordinates.length >= MoveController.MINIMUM_COORDINATES;
 		for(Coordinate coordinate: coordinates)
 			assert coordinate != null;
-		Error error = this.game.move(coordinates);
+		Error error = this.game.checkMoveError(coordinates);
+		if (error != Error.NULL) {
+			this.game.move(coordinates);
+		}
 		if (this.game.isBlocked())
 			this.state.next();
 		return error;
