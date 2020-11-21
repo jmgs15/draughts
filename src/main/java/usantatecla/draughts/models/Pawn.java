@@ -18,7 +18,7 @@ public class Pawn extends Piece {
 			return Error.TOO_MUCH_ADVANCED;
 		if (distance == Pawn.MAX_DISTANCE && amountBetweenDiagonalPieces != 1) 
 			return Error.WITHOUT_EATING;
-		return null;
+		return Error.NULL;
     }
     
     protected char[] getCodes() {

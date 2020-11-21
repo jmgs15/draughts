@@ -10,7 +10,7 @@ public class Draught extends Piece {
   Error isCorrectDiagonalMovement(int amountBetweenDiagonalPieces, int pair, Coordinate... coordinates) {
     if (amountBetweenDiagonalPieces > 1)
       return Error.TOO_MUCH_EATINGS;
-    return null;
+    return Error.NULL;
   }
 
   @Override

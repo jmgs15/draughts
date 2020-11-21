@@ -145,7 +145,7 @@ public class GameMovementTest {
 				"       b",
 				"        ");
 		Error error = move(coordinate(6, 7), coordinate(4, 5), coordinate(2, 3), coordinate(0, 1));
-		assertNull(error);
+		assertEquals(error, Error.NULL);
 		assertTrue(piece(coordinate(0, 1)) instanceof Draught);
 		assertNull(piece(coordinate(1, 2)));
 	}

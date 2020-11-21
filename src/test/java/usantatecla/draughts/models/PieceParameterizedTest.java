@@ -50,7 +50,7 @@ public class PieceParameterizedTest {
 				{ pawn(white()),
 					coordinate(0, 0), true,
 					coordinate(5, 4), coordinate(4, 5), true,
-					Arrays.asList(pawn(black())), 0, new Coordinate[] { coordinate(5, 4), coordinate(3, 6) }, null },
+					Arrays.asList(pawn(black())), 0, new Coordinate[] { coordinate(5, 4), coordinate(3, 6) }, Error.NULL },
 				{ pawn(black()),
 					coordinate(7, 3), true,
 					coordinate(5, 4), coordinate(4, 5), false,

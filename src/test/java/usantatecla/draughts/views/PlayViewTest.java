@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import usantatecla.draughts.controllers.PlayController;
 import usantatecla.draughts.models.Color;
+import usantatecla.draughts.models.Error;
 import usantatecla.draughts.utils.Console;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -30,6 +31,7 @@ public class PlayViewTest {
     public void before() {
         initMocks(this);
         doReturn(Color.WHITE).when(playController).getColor();
+        doReturn(Error.NULL).when(playController).move(any());
     }
 
     @Test

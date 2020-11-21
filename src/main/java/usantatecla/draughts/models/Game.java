@@ -33,19 +33,19 @@ public class Game {
 	}
 
 	public Error move(Coordinate... coordinates) {
-		Error error = null;
+		Error error = Error.NULL;
 		List<Coordinate> removedCoordinates = new ArrayList<Coordinate>();
 		List<Piece> removedPieces = new ArrayList<Piece>();
 		int pair = 0;
 		do {
 			error = this.isCorrectPairMove(pair, coordinates);
-			if (error == null) {
+			if (error == Error.NULL) {
 				this.pairMove(removedCoordinates, removedPieces, pair, coordinates);
 				pair++;
 			}
-		} while (pair < coordinates.length - 1 && error == null);
+		} while (pair < coordinates.length - 1 && error == Error.NULL);
 		error = this.isCorrectGlobalMove(error, removedCoordinates, coordinates);
-		if (error == null)
+		if (error == Error.NULL)
 			this.turn.change();
 		else
 			this.unMovesUntilPair(removedCoordinates, removedPieces, pair, coordinates);
@@ -95,11 +95,11 @@ public class Game {
 	}
 
 	private Error isCorrectGlobalMove(Error error, List<Coordinate> removedCoordinates, Coordinate... coordinates){
-		if (error != null)
+		if (error != Error.NULL)
 			return error;
 		if (coordinates.length > 2 && coordinates.length > removedCoordinates.size() + 1)
 			return Error.TOO_MUCH_JUMPS;
-		return null;
+		return Error.NULL;
 	}
 
 	private void unMovesUntilPair(List<Coordinate> removedCoordinates, List<Piece> removedPieces, int pair, Coordinate... coordinates) {
@@ -135,7 +135,7 @@ public class Game {
 	private boolean isBlocked(Coordinate coordinate) {
 		for (int i = 1; i <= 2; i++)
 			for (Coordinate target : coordinate.getDiagonalCoordinates(i))
-				if (this.isCorrectPairMove(0, coordinate, target) == null)
+				if (this.isCorrectPairMove(0, coordinate, target) == Error.NULL)
 					return false;
 		return true;
 	}
