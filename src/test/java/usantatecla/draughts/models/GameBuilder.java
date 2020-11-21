@@ -17,7 +17,7 @@ public class GameBuilder {
 			assert row.length() == Coordinate.getDimension();
 			for (int j = 0; j < row.length(); j++) {
 				Color color = color(row.charAt(j));
-				if (color != null) {
+				if (color != Color.NULL) {
 					Piece piece = new Pawn(color);
 					if (Character.isUpperCase(row.charAt(j))) {
 						piece = new Draught(color);
@@ -38,7 +38,7 @@ public class GameBuilder {
 		case 'N':
 			return Color.BLACK;
 		default:
-			return null;
+			return Color.NULL;
 		}
 	}
 	

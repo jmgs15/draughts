@@ -2,16 +2,19 @@ package usantatecla.draughts.models;
 
 public enum Color {
     WHITE,
-    BLACK;
+    BLACK,
+    NULL;
 
     private final int[] LIMITS = new int[]{5, 2};
 
     boolean isInitialRow(final int row){
-        switch(this){
-            case WHITE:
-                return row >= LIMITS[this.ordinal()];
-            case BLACK:
-                return row <= LIMITS[this.ordinal()];
+        if (this != NULL) {
+            switch (this) {
+                case WHITE:
+                    return row >= LIMITS[this.ordinal()];
+                case BLACK:
+                    return row <= LIMITS[this.ordinal()];
+            }
         }
         return false;
     }
@@ -21,7 +24,7 @@ public enum Color {
             for(Color color : Color.values())
                 if (color.isInitialRow(coordinate.getRow()))
                     return color;
-        return null;
+        return NULL;
     }
 	
 }
