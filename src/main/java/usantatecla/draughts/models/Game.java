@@ -73,15 +73,19 @@ public class Game {
 	}
 
 	private void removeSimulation(int pair, Coordinate... coordinates) {
-		if (pair >= 1) {
+		if (isSecondOrHigherJump(pair)) {
 			this.board.remove(coordinates[pair]);
 		}
 	}
 
 	private void createSimulation(int pair, Coordinate... coordinates) {
-		if (pair >= 1) {
+		if (isSecondOrHigherJump(pair)) {
 			this.board.put(coordinates[pair], this.board.getPiece(coordinates[0]));
 		}
+	}
+
+	private boolean isSecondOrHigherJump(int pair) {
+		return pair >= 1;
 	}
 
 	private Error isCorrectPairMove(int pair, Coordinate... coordinates) {

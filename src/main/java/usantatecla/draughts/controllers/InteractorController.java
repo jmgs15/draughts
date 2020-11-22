@@ -7,6 +7,10 @@ import usantatecla.draughts.models.State;
 
 public abstract class InteractorController extends Controller {
 
+	protected InteractorController() {
+		super();
+	}
+
 	protected InteractorController(Game game, State state) {
 		super(game, state);
 	}

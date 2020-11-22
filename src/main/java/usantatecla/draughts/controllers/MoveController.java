@@ -9,6 +9,10 @@ class MoveController extends Controller {
 
 	private static final int MINIMUM_COORDINATES = 2;
 
+	protected MoveController() {
+		super();
+	}
+
     protected MoveController(Game game, State state) {
         super(game, state);
     }

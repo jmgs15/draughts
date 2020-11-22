@@ -5,6 +5,8 @@ import usantatecla.draughts.models.State;
 
 public class StartController extends InteractorController {
 
+	public StartController() { }
+
 	public StartController(Game game, State state) {
         super(game, state);
 	}

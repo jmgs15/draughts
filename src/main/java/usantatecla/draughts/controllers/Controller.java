@@ -10,6 +10,11 @@ class Controller {
     protected Game game;
     protected State state;
 
+    protected Controller() {
+        this.game = new Game();
+        this.state = new State();
+    }
+
     protected Controller(Game game, State state) {
         assert game != null;
         assert state != null;

@@ -5,6 +5,10 @@ import usantatecla.draughts.models.State;
 
 public class ResumeController extends InteractorController {
 
+	public ResumeController() {
+		super();
+	}
+
 	public ResumeController(Game game, State state) {
         super(game, state);
 	}

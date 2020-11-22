@@ -11,6 +11,12 @@ public class PlayController extends InteractorController {
 	private CancelController cancelController;
 	private MoveController moveController;
 
+	public PlayController() {
+		super();
+		this.cancelController = new CancelController();
+		this.moveController = new MoveController();
+	}
+
 	public PlayController(Game game, State state) {
 		super(game, state);
 		this.cancelController = new CancelController(game, state);

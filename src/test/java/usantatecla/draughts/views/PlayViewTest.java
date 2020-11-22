@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import usantatecla.draughts.controllers.PlayController;
 import usantatecla.draughts.models.Color;
 import usantatecla.draughts.models.Error;
@@ -19,12 +20,12 @@ public class PlayViewTest {
     private static final String LOST_MESSAGE = "Derrota!!! No puedes mover tus fichas!!!";
 
     @InjectMocks
-    PlayView playView;
+    View view;
 
     @Mock
     Console console;
 
-    @Mock
+    @Spy
     PlayController playController;
 
     @Before
@@ -39,14 +40,14 @@ public class PlayViewTest {
         //TODO: Preguntar por qué con el @Spy de console no funciona el when().thenReturn()
         doReturn(CANCEL_FORMAT).when(console).readString(any());
         //when(console.readString(anyString())).thenReturn(CANCEL_FORMAT);
-        playView.interact(playController);
+        view.interact(playController);
         verify(playController, times(1)).cancel();
     }
 
     @Test
     public void testWhenIntroducingWrongFormatCoordinateThenAskAgain() {
         doReturn("xxx", "12.23").when(console).readString(any());
-        playView.interact(playController);
+        view.interact(playController);
         verify(console, times(2)).readString(any());
     }
 
@@ -54,7 +55,7 @@ public class PlayViewTest {
     public void testWhenIntroducingValidCoordinateAndBlockedThenLoose() {
         doReturn("12.23").when(console).readString(any());
         doReturn(true).when(playController).isBlocked();
-        playView.interact(playController);
+        view.interact(playController);
         verify(console, times(1)).writeln(LOST_MESSAGE);
     }
 }

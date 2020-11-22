@@ -5,6 +5,10 @@ import usantatecla.draughts.models.State;
 
 class CancelController extends Controller {
 
+    protected CancelController() {
+        super();
+    }
+
     protected CancelController(Game game, State state) {
         super(game, state);
     }

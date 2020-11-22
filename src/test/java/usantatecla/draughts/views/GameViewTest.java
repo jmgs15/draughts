@@ -2,8 +2,10 @@ package usantatecla.draughts.views;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import usantatecla.draughts.controllers.InteractorController;
 import usantatecla.draughts.models.Color;
 import usantatecla.draughts.models.Coordinate;
@@ -20,47 +22,49 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 public class GameViewTest {
-    private GameView gameView;
     private final int DIMENSION = 5;
     private final Color black = Color.BLACK;
     private final Color white = Color.WHITE;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
+    @InjectMocks
+    private View view;
+
     @Mock
-    InteractorController interactorController;
+    private InteractorController interactorController;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         System.setOut(new PrintStream(outContent));
-        this.gameView = new GameView();
+        this.view = new View();
     }
 
     @Test
     public void testWriteNumbersOfColumnsAtTop() {
         when(this.interactorController.getDimension()).thenReturn(DIMENSION);
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals(" 12345", this.topAndBottomNumberLines().get(0));
     }
 
     @Test
     public void testWriteNumbersOfColumnsAtBottom() {
         when(this.interactorController.getDimension()).thenReturn(DIMENSION);
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals(" 12345", this.topAndBottomNumberLines().get(1));
     }
 
     @Test
     public void testWriteFirstRowNumberAtTheBeginning() {
         when(this.interactorController.getDimension()).thenReturn(DIMENSION);
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals("1", firstCharacterOfLine(boardLine(1)));
     }
 
     @Test
     public void testWriteLastRowNumberAtTheBeginning() {
         when(this.interactorController.getDimension()).thenReturn(DIMENSION);
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals("5", firstCharacterOfLine(boardLine(DIMENSION)));
 
     }
@@ -68,14 +72,14 @@ public class GameViewTest {
     @Test
     public void testWriteFirstRowNumberAtLastOfLine() {
         when(this.interactorController.getDimension()).thenReturn(DIMENSION);
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals("1", lastCharacterOfLine(bodyLines().get(0)));
     }
 
     @Test
     public void testWriteLastRowNumberAtLastOfLine() {
         when(this.interactorController.getDimension()).thenReturn(DIMENSION);
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals("5", lastCharacterOfLine(boardLine(DIMENSION)));
     }
 
@@ -86,7 +90,7 @@ public class GameViewTest {
         when(this.interactorController.getPiece(coordinate(0,2))).thenReturn(pawn(black));
         when(this.interactorController.getPiece(coordinate(0,4))).thenReturn(pawn(black));
 
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals("1n n n1",boardLine(1));
     }
 
@@ -96,7 +100,7 @@ public class GameViewTest {
         when(this.interactorController.getPiece(coordinate(3,1))).thenReturn(pawn(white));
         when(this.interactorController.getPiece(coordinate(3,3))).thenReturn(pawn(white));
 
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals("4 b b 4",boardLine(4));
     }
 
@@ -107,7 +111,7 @@ public class GameViewTest {
         when(this.interactorController.getPiece(coordinate(0,2))).thenReturn(pawn(white));
         when(this.interactorController.getPiece(coordinate(0,5))).thenReturn(null);
 
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals("1n b  1",boardLine(1));
     }
 
@@ -117,7 +121,7 @@ public class GameViewTest {
         when(this.interactorController.getPiece(coordinate(2,0))).thenReturn(draught(black));
         when(this.interactorController.getPiece(coordinate(2,4))).thenReturn(draught(white));
 
-        this.gameView.write(interactorController);
+        this.view.write(interactorController);
         assertEquals("3N   B3",boardLine(3));
     }
 

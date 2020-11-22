@@ -19,14 +19,14 @@ public class StartViewTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
-    @Mock
+    @InjectMocks
+    private View view;
+
+    @Spy
     private StartController startController;
 
     @Spy
     private Console console;
-
-    @InjectMocks
-    private final StartView startView = new StartView();
 
     @Before
     public void before() {
@@ -36,25 +36,28 @@ public class StartViewTest {
 
     @Test(expected = AssertionError.class)
     public void testInteractNullControllerShouldThrowError() {
-        startView.interact(null);
+        view.interact(null);
     }
 
     @Test
     public void testInteractShouldBeCalledOnce() {
-        this.startView.interact(this.startController);
+        this.view.interact(this.startController);
         verify(startController, times(1)).start();
         verify(startController, atMost(1)).start();
     }
 
     @Test
     public void testInteractConsoleShouldWriteTitle() {
-        this.startView.interact(this.startController);
-        verify(this.console, times(1)).writeln(anyString());
+        this.view.interact(this.startController);
+        // 1 vez del título y 8 de las filas que contienen fichas del tablero
+        verify(this.console, times(9)).writeln(anyString());
+        // 2 veces de la filas que contienen los números de las columnas
+        verify(this.console, times(2)).writeln();
     }
 
     @Test
     public void testInteractConsoleShouldPrintTitle() {
-        startView.interact(this.startController);
+        view.interact(this.startController);
         Assert.assertTrue(outContent.toString().contains("Draughts"));
     }
 }
