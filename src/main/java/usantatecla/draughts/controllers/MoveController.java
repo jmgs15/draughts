@@ -22,7 +22,7 @@ class MoveController extends Controller {
 		for(Coordinate coordinate: coordinates)
 			assert coordinate != null;
 		Error error = this.game.checkMoveError(coordinates);
-		if (error != Error.NULL) {
+		if (error == Error.NULL) {
 			this.game.move(coordinates);
 		}
 		if (this.game.isBlocked())
